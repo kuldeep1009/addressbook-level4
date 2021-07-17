@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('compile') {
+            steps {
+                maven "compile"
+            }
+        }
+        stage('CodeReview') {
+            steps {
+                maven ""
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                maven "test"
+            }
+        }
+        stage('Package') {
+            steps {
+                maven "package"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                maven "deploy"
+            }
+        }
+    }
+}
